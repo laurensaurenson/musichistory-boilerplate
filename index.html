@@ -1,13 +1,96 @@
-<!doctype html>
-
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="utf-8">
-  <title>Music History</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Music History</title>
+	<link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-
-
+  <div class="wrapper">
+  <!-- Header- Nav Bar -->
+  	<header class="navBar">
+      <ul>
+        <li><a href="#">View Music</a> |</li>
+        <li><a href="#">Add Music</a> |</li>
+        <li><a href="#">Profile</a></li>
+      </ul>
+    </header>
+  <!-- Music Selection Fields (LEFT) -->
+    <article class="selectors">
+      <!-- Song Length Range -->
+      <label>Song length: <input type="range" name="song_length" class="range"></label>
+      <!-- Artist Select & Options -->
+      <label class="padSelect">Artist:
+        <select name="artist" class="block">
+          <option value=" " disabled selected>Choose...</option>
+          <option value="frankSinatra">frankSinatra</option>
+          <option value="joanJett">Joan Jett</option>
+          <option value="whiteStripes">The White Stripes</option>
+          <option value="halsey">Halsey</option>
+          <option value="girlTalk">Girl Talk</option>
+        </select>
+      </label>
+      <!-- Album Select & Options -->
+      <label class="padSelect">Album:
+        <select name="album" class="block">
+          <option value=" " disabled selected>Choose...</option>
+          <option value="strangersInTheNight">Strangers in the Night</option>
+          <option value="badReputation">Bad Reputation</option>
+          <option value="ickyThump">Icky Thump</option>
+          <option value="badlands">BADLANDS</option>
+          <option value="feedTheAnimals">Feed the Animals</option>
+        </select>
+      </label>
+      <!-- Genre Checklist -->
+      <label class="clear padSelect">Genre:
+        <div>
+          <div class="genres">
+            <label for="rockGenre">
+              <input type="checkbox" name="rockGenre"  id="rockGenre"> Rock
+            </label>
+            <label for="popGenre">
+              <input type="checkbox" name="popGenre"  id="popGenre"> Pop
+            </label>
+            <label for="bluesGenre">
+              <input type="checkbox" name="bluesGenre"  id="bluesGenre"> Blues
+            </label>
+          </div>
+          <div class="genres">
+            <label for="classicalGenre">
+              <input type="checkbox" name="classicalGenre"  id="classicalGenre"> Classical
+            </label>
+            <label for="jazzGenre">
+              <input type="checkbox" name="jazzGenre"  id="jazzGenre"> Jazz
+            </label>
+            <label for="hipHopGenre">
+              <input type="checkbox" name="hipHopGenre"  id="hipHopGenre"> Hip Hop
+            </label>
+          </div>
+        </div>
+      </label>
+      <!-- Filter Button -->
+      <button type="submit" class="clear">Filter</button>
+    </article>
+  <!-- Song Information (RIGHT) -->
+    <article class="songTitles">
+      <section>
+        <h2>Song Title</h2>
+        <p>Artist Name | Artist Album | Genre</p>
+      </section>  
+      <section>
+        <h2>Song Title</h2>
+        <p>Artist Name | Artist Album | Genre</p>
+      </section>  
+      <section>
+        <h2>Song Title</h2>
+        <p>Artist Name | Artist Album | Genre</p>
+      </section>  
+      <section>
+        <h2>Song Title</h2>
+        <p>Artist Name | Artist Album | Genre</p>
+      </section>  
+    </article>
+</div>
 </body>
 </html>

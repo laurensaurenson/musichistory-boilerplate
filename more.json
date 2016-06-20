@@ -1,0 +1,22 @@
+{
+    "songs": [
+        {
+            "title": "Hella",
+            "artist": "My Cat",
+            "album": "Title Album",
+            "genre": "What"
+        },
+        {
+            "title": "Darn Right",
+            "artist": "You",
+            "album": "Doin That Thing You",
+            "genre": "Do"
+        },
+        {
+            "title": "Breaking my heart",
+            "artist": "into a million pieces",
+            "album": "like you always",
+            "genre": "doooooooo"
+        }
+    ]
+}

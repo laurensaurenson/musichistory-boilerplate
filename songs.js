@@ -1,106 +1,77 @@
-// var listView = document.getElementById("listMusic");
-var songList = document.createElement("div");
-// var addingMusic = document.getElementById("addMusicView");
-// var viewMusic = document.getElementById("viewMusic"); 
 var arrayObject;
+var songList = $("<div>");
+var container = $("#songs");
+var more = $("<button>").html("More...").addClass("moreButton");
+container.append(songList);
+container.append(more);
 
 function printingSongInfo () {
-  for (var i = 0; i < arrayObject.songs.length; i ++) {
+  for (var i = 0; i < arrayObject.length; i ++) {
     writingInfo(i);
   }
 } 
 
 function writeNewSong (arrayObject) {
-  var i = arrayObject.songs.length - 1;
+  var i = arrayObject.length - 1;
   writingInfo(i);
 }
 
 function writingInfo (x) {
-  var note = document.createElement("div");
-  var song = document.createElement("h2");
-  var songName = document.createTextNode(`${arrayObject.songs[x].title}`);
-  var artist = document.createElement("p");
-  var artistInfo = document.createTextNode(`${arrayObject.songs[x].artist} | ${arrayObject.songs[x].album} | ${arrayObject.songs[x].genre}`);
-  var buttonDelete = document.createElement("button");
-  var bDelete = document.createTextNode("Delete");
-  compileSongNote(note, song, songName, artist, artistInfo, buttonDelete, bDelete);
+  var note = $("<div>");
+  var song = $("<h2>").html(`${arrayObject[x].title}`);
+  var artist = $("<p>").html(`${arrayObject[x].artist} | ${arrayObject[x].album} | ${arrayObject[x].genre}`);
+  var buttonDelete = $("<button>").html("Delete");
+  compileSongNote(note, song, artist, buttonDelete);
 }
 
-function compileSongNote (note, song, songName, artist, artistInfo, buttonDelete, bDelete) {
-  note.classList.add("songGroup");
-  song.appendChild(songName);
-  artist.appendChild(artistInfo);
-  buttonDelete.appendChild(bDelete);
-  buttonDelete.addEventListener("click", deleted);
-  note.appendChild(song);
-  note.appendChild(artist);
-  note.appendChild(buttonDelete);
-  note.classList.add("capitalize");
-  songList.appendChild(note);
+function compileSongNote (note, song, artist, buttonDelete) {
+  buttonDelete.click(deleted);
+  note.append(song).append(artist).append(buttonDelete).addClass("songGroup capitalize");
+  songList.append(note);
 }
 
-function loaded (  ) {
-  arrayObject = JSON.parse(event.target.responseText);
+function loaded ( data ) {
+  arrayObject = data.songs;
   printingSongInfo();
 }
 
 function loadMore () {
-  var moreSongs = new XMLHttpRequest();
-  moreSongs.addEventListener("load", loaded);
-  moreSongs.open("GET", "more.json");
-  moreSongs.send();
-  more.classList.add("hidden");
+  $.ajax({
+    url:"more.json"
+  }).done(loaded);
+  more.addClass("hidden");
 }
 
 function addSongs () {
   var newSong = {};
-  newSong.album = document.getElementById("albumName").value;
-  newSong.artist = document.getElementById("artistName").value;
-  newSong.genre = document.getElementById("genreName").value;
-  newSong.title = document.getElementById("songName").value;
-  arrayObject.songs.push(newSong);
+  newSong.album = $("#albumName").val();
+  newSong.artist = $("#artistName").val();
+  newSong.genre = $("#genreName").val();
+  newSong.title = $("#songName").val();
+  arrayObject.push(newSong);
   writeNewSong(arrayObject);
+  showViewMusic();
 }
 
 function deleted () {
-  var cardToDelete = event.target.closest("div");
-  songList.removeChild(cardToDelete);
+  $(this).parent().remove();
 }
 
-// TO CREATE: if else statement for list view VS add view
-
 function showAddMusic () {
-  var addingMusic = document.getElementById("addMusicView");
-  var viewMusic = document.getElementById("viewMusic");
-  listMusic.classList.add("hidden");
-  addingMusic.classList.remove("hidden");
+  $("#addMusicView").removeClass("hidden");
+  $("#listMusic").addClass("hidden");
 }
 
 function showViewMusic () {  
-  var addingMusic = document.getElementById("addMusicView");
-  var viewMusic = document.getElementById("viewMusic");
-  addingMusic.classList.add("hidden");
-  listMusic.classList.remove("hidden");
+  $("#addMusicView").addClass("hidden");
+  $("#listMusic").removeClass("hidden");
 }
 
+$.ajax({
+  url:"songs.json"
+}).done(loaded);
 
-var container = document.getElementById("songs");
-var more = document.createElement("button");
-var moreSongs = document.createTextNode("More...");
-more.classList.add("moreButton");
-more.appendChild(moreSongs);
-container.appendChild(songList);
-container.appendChild(more);
-
-var songInfo = new XMLHttpRequest();
-songInfo.open("GET", "songs.json");
-songInfo.send();
-
-songInfo.addEventListener("load", loaded);
-more.addEventListener("click" , loadMore );
-
-addMusic.addEventListener("click", showAddMusic);
-viewMusic.addEventListener("click", showViewMusic);
-
-var addSong = document.getElementById("addSong");
-addSong.addEventListener("click", addSongs);
+$(".moreButton").click(loadMore);
+$("#addMusic").click(showAddMusic);
+$("#viewMusic").click(showViewMusic);
+$("#addSong").click(addSongs);

@@ -1,3 +1,4 @@
+"use strict";
 var arrayObject;
 var songList = $("<div>");
 var container = $("#songs");

@@ -1,22 +1,22 @@
 {
     "songs": [
         {
-            "title": "The Walk",
-            "artist": "Mayer Hawthorne",
-            "album": "How Do You Do",
-            "genre": "Whatever"
+            "title": "Summer Winds",
+            "artist": "Frank Sinatra",
+            "album": "Strangers in the Night",
+            "genre": "Jazz"
         },
         {
-            "title": "Medicine",
-            "artist": "Grace Potter",
-            "album": "Grace Potter and the Nocturnals",
-            "genre": "Indie"
-        },
-        {
-            "title": "Legs",
-            "artist": "ZZ Top",
-            "album": "Eliminator",
+            "title": "Fake Friends",
+            "artist": "Joan Jett",
+            "album": "Bad Reputation",
             "genre": "Rock"
+        },
+        {
+            "title": "Conquest",
+            "artist": "The White Stripes",
+            "album": "Icky Thump",
+            "genre": "Indie"
         }
     ]
 }

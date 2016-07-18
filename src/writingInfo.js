@@ -1,46 +1,38 @@
 "use strict";
-var arrayObject;
+
+let buttonFunctions = require("./buttonFunctions");
+
 var songList = $("<div>");
 var container = $("#songs");
+var arrayObject = [];
 var more = $("<button>").html("More...").addClass("moreButton");
 container.append(songList);
 container.append(more);
-
-function printingSongInfo () {
-  for (var i = 0; i < arrayObject.length; i ++) {
-    writingInfo(i);
-  }
-} 
 
 function writeNewSong (arrayObject) {
   var i = arrayObject.length - 1;
   writingInfo(i);
 }
 
+function printingSongInfo (array) {
+  for (var i = 0; i < array.length; i ++) {
+    arrayObject = array;
+    writingInfo(i, array);
+  }
+} 
+
 function writingInfo (x) {
   var note = $("<div>");
   var song = $("<h2>").html(`${arrayObject[x].title}`);
   var artist = $("<p>").html(`${arrayObject[x].artist} | ${arrayObject[x].album} | ${arrayObject[x].genre}`);
   var buttonDelete = $("<button>").html("Delete");
+  buttonDelete.click(buttonFunctions.deleted);
   compileSongNote(note, song, artist, buttonDelete);
 }
 
 function compileSongNote (note, song, artist, buttonDelete) {
-  buttonDelete.click(deleted);
   note.append(song).append(artist).append(buttonDelete).addClass("songGroup capitalize");
   songList.append(note);
-}
-
-function loaded ( data ) {
-  arrayObject = data.songs;
-  printingSongInfo();
-}
-
-function loadMore () {
-  $.ajax({
-    url:"more.json"
-  }).done(loaded);
-  more.addClass("hidden");
 }
 
 function addSongs () {
@@ -51,28 +43,9 @@ function addSongs () {
   newSong.title = $("#songName").val();
   arrayObject.push(newSong);
   writeNewSong(arrayObject);
-  showViewMusic();
+  buttonFunctions.showViewMusic();
 }
 
-function deleted () {
-  $(this).parent().remove();
-}
-
-function showAddMusic () {
-  $("#addMusicView").removeClass("hidden");
-  $("#listMusic").addClass("hidden");
-}
-
-function showViewMusic () {  
-  $("#addMusicView").addClass("hidden");
-  $("#listMusic").removeClass("hidden");
-}
-
-$.ajax({
-  url:"songs.json"
-}).done(loaded);
-
-$(".moreButton").click(loadMore);
-$("#addMusic").click(showAddMusic);
-$("#viewMusic").click(showViewMusic);
-$("#addSong").click(addSongs);
+module.exports = {
+  writingInfo, compileSongNote, printingSongInfo, writeNewSong, addSongs
+};

@@ -1,0 +1,95 @@
+body {
+  font-family: sans-serif;
+  margin: 0; }
+  body li {
+    list-style: none; }
+  body a {
+    text-decoration: none; }
+  body label {
+    display: block; }
+
+.block {
+  display: block; }
+
+.wrapper {
+  max-width: 800px;
+  margin: 0 auto; }
+
+.clear {
+  overflow: auto; }
+
+.hidden {
+  display: none; }
+
+.capitalize {
+  text-transform: capitalize; }
+
+/*********************************
+***** Header / Nav Bar Styles *****
+**********************************/
+header {
+  background-color: #ffb4b0;
+  border: 2px solid black;
+  overflow: auto;
+  margin-top: 10px;
+  margin-bottom: 1.5%; }
+  header li {
+    float: left;
+    padding-left: 5px;
+    padding-bottom: 15px; }
+
+/*********************************
+* Music Selection Column (LEFT) *
+**********************************/
+.selectors {
+  background-color: #4dd7fa;
+  border: 2px solid black;
+  padding: 10px;
+  padding-top: 21px;
+  width: 25%;
+  overflow: auto;
+  float: left;
+  box-sizing: border-box; }
+  .selectors select,
+  .selectors .range {
+    margin: 10px 0; }
+  .selectors button {
+    margin: 9px auto;
+    margin-bottom: 10px;
+    display: block; }
+
+.genres {
+  float: left;
+  width: 50%;
+  padding-top: 5px; }
+  .genres input {
+    margin: 7px 0; }
+
+/*********************************
+* Song Title Info Column (RIGHT) *
+**********************************/
+.songTitles {
+  background-color: #fefac0;
+  width: 73%;
+  float: right;
+  border: 2px solid black;
+  color: #785616;
+  padding-bottom: 5px; }
+
+.moreButton {
+  margin: 20px; }
+
+.songGroup {
+  margin: 10px;
+  padding-left: 10px; }
+
+.padSelect {
+  padding-bottom: 10px; }
+
+.musicView {
+  margin: 0 auto;
+  width: 250px;
+  background-color: teal;
+  padding: 20px; }
+  .musicView label {
+    margin: 20px auto; }

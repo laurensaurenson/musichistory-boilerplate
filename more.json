@@ -1,16 +1,16 @@
 {
     "songs": [
         {
-            "title": "Hella",
-            "artist": "My Cat",
-            "album": "Title Album",
-            "genre": "What"
+            "title": "Badlands",
+            "artist": "Halsey",
+            "album": "BADLANDS",
+            "genre": "Pop"
         },
         {
-            "title": "Darn Right",
-            "artist": "You",
-            "album": "Doin That Thing You",
-            "genre": "Do"
+            "title": "Song1",
+            "artist": "Girl Talk",
+            "album": "Feed the Animals",
+            "genre": "Hip Hop"
         },
         {
             "title": "Breaking my heart",

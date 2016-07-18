@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Music History</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <div class="wrapper">
@@ -17,7 +17,7 @@
       </ul>
     </header>
   <!-- Music Selection Fields (LEFT) -->
-    <div id="listMusic">
+    <div id="listMusic col-sm-3">
       <article class="selectors">
         <!-- Song Length Range -->
         <label>Song length: <input type="range" name="song_length" class="range"></label>
@@ -74,27 +74,13 @@
         <button type="submit" class="clear">Filter</button>
       </article>
     <!-- Song Information (RIGHT) -->
-      <article class="songTitles">
+      <article class="songTitles col-sm-6">
         <div  id="songs">
         </div>
-        <!-- <section>
-          <h2>Song Title</h2>
-          <p>Artist Name | Artist Album | Genre</p>
-        </section>  
-        <section>
-          <h2>Song Title</h2>
-          <p>Artist Name | Artist Album | Genre</p>
-        </section>  
-        <section>
-          <h2>Song Title</h2>
-          <p>Artist Name | Artist Album | Genre</p>
-        </section>  
-        <section>
-          <h2>Song Title</h2>
-          <p>Artist Name | Artist Album | Genre</p>
-        </section>   -->
       </article>
     </div>
+
+    <!-- Add Music View -->
     <div id="addMusicView" class="hidden">
       <div class="musicView">
         <label>Song Name: <input type="text" name="" id="songName"></label>
@@ -106,6 +92,6 @@
     </div>
 </div>
 <script  src="https://code.jquery.com/jquery-3.0.0.min.js"  integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0="crossorigin="anonymous"></script>
-<script src="js/songs.js"></script>
+<script src="dist/bundle.js"></script>
 </body>
 </html>
